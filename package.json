@@ -1,14 +1,14 @@
 {
-	"name": "indent-nav",
-	"displayName": "IndentNav",
-	"description": "Indentation navigation.",
-	"version": "1.0.3",
-	"publisher": "TonyMalykh",
+	"name": "indent-nav-kit",
+	"displayName": "IndentNavKit",
+	"description": "Indentation navigation (Kit's modified version, based on Tony Malykh's original).",
+	"version": "1.0.0",
+	"publisher": "KitKennedy",
 	"license": "MIT",
-	"bugs": "https://github.com/mltony/vscode-indent-nav/issues",
+	"bugs": "https://github.com/apollokit/vscode-indent-nav/issues",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/mltony/vscode-indent-nav"
+		"url": "https://github.com/apollokit/vscode-indent-nav"
 	},
 	"engines": {
 		"vscode": "^1.39.0"
@@ -17,32 +17,14 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:indent-nav.wordRight",
-		"onCommand:indent-nav.wordLeft",
 		"onCommand:indent-nav.nextSibling",
 		"onCommand:indent-nav.previousSibling",
-		"onCommand:indent-nav.nextSiblingForce",
-		"onCommand:indent-nav.previousSiblingForce",
-		"onCommand:indent-nav.firstSibling",
-		"onCommand:indent-nav.lastSibling",
-		"onCommand:indent-nav.nextChild",
-		"onCommand:indent-nav.previousChild",
-		"onCommand:indent-nav.previousParent",
-		"onCommand:indent-nav.nextParent",
-		"onCommand:indent-nav.startSelection",
-		"onCommand:indent-nav.finishSelection"
+		"onCommand:indent-nav.nextSiblingWithSelection",
+		"onCommand:indent-nav.previousSiblingWithSelection"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
-			{
-				"command": "indent-nav.wordRight",
-				"title": "Move to next word - screenreader compatible"
-			},
-			{
-				"command": "indent-nav.wordLeft",
-				"title": "Move to previous word - screenreader compatible"
-			},
 			{
 				"command": "indent-nav.nextSibling",
 				"title": "Jump to next sibling"
@@ -52,59 +34,15 @@
 				"title": "Jump to previous sibling"
 			},
 			{
-				"command": "indent-nav.nextSiblingForce",
-				"title": "Jump to next sibling force"
+				"command": "indent-nav.nextSiblingWithSelection",
+				"title": "Jump to next sibling, with selection (highlighting)"
 			},
 			{
-				"command": "indent-nav.previousSiblingForce",
-				"title": "Jump to previous sibling force"
-			},
-			{
-				"command": "indent-nav.firstSibling",
-				"title": "Jump to first sibling"
-			},
-			{
-				"command": "indent-nav.lastSibling",
-				"title": "Jump to last sibling"
-			},
-			{
-				"command": "indent-nav.nextChild",
-				"title": "Jump to next child"
-			},
-			{
-				"command": "indent-nav.previousChild",
-				"title": "Jump to previous child"
-			},
-			{
-				"command": "indent-nav.previousParent",
-				"title": "Jump to previous parent"
-			},
-			{
-				"command": "indent-nav.nextParent",
-				"title": "Jump to next parent"
-			},
-			{
-				"command": "indent-nav.startSelection",
-				"title": "Marks current line as start of selection"
-			},
-			{
-				"command": "indent-nav.finishSelection",
-				"title": "Selects lines from previously selected marker until current line"
+				"command": "indent-nav.previousSiblingWithSelection",
+				"title": "Jump to previous sibling, with selection (highlighting)"
 			}
 		],
 		"keybindings": [
-			{
-				"command": "indent-nav.wordRight",
-				"key": "ctrl-right",
-				"mac": "control-right",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "indent-nav.wordLeft",
-				"key": "ctrl-left",
-				"mac": "control-left",
-				"when": "editorTextFocus"
-			},
 			{
 				"command": "indent-nav.nextSibling",
 				"key": "alt-down",
@@ -118,63 +56,15 @@
 				"when": "editorTextFocus"
 			},
 			{
-				"command": "indent-nav.nextSiblingForce",
-				"key": "alt-shift+PageDown",
-				"mac": "alt-shift+PageDown",
+				"command": "indent-nav.nextSiblingWithSelection",
+				"key": "alt-shift-down",
+				"mac": "alt-shift-down",
 				"when": "editorTextFocus"
 			},
 			{
-				"command": "indent-nav.previousSiblingForce",
-				"key": "alt-shift+PageUp",
-				"mac": "alt-shift+PageUp",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "indent-nav.firstSibling",
-				"key": "alt-shift-home",
-				"mac": "alt-shift-home",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "indent-nav.lastSibling",
-				"key": "alt-shift-end",
-				"mac": "alt-shift-end",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "indent-nav.nextChild",
-				"key": "alt-pagedown",
-				"mac": "alt-pagedown",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "indent-nav.previousChild",
-				"key": "alt-pageup",
-				"mac": "alt-pageup",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "indent-nav.previousParent",
-				"key": "alt-home",
-				"mac": "alt-home",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "indent-nav.nextParent",
-				"key": "alt-end",
-				"mac": "alt-end",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "indent-nav.startSelection",
-				"key": "alt-f9",
-				"mac": "alt-f9",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "indent-nav.finishSelection",
-				"key": "alt-f10",
-				"mac": "alt-f10",
+				"command": "indent-nav.previousSiblingWithSelection",
+				"key": "alt-shift-up",
+				"mac": "alt-shift-up",
 				"when": "editorTextFocus"
 			}
 		]
