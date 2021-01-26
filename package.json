@@ -1,7 +1,7 @@
 {
 	"name": "indent-nav-kit",
 	"displayName": "IndentNavKit",
-	"description": "Indentation navigation (Kit's modified version, based on Tony Malykh's original).",
+	"description": "Indentation navigation (Kit's modified version, based on Tony Malykh's original at https://github.com/mltony/vscode-indent-nav).",
 	"version": "1.0.0",
 	"publisher": "KitKennedy",
 	"license": "MIT",

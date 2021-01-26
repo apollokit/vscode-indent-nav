@@ -1,3 +1,5 @@
+// modified from original at https://github.com/mltony/vscode-indent-nav
+
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
@@ -8,7 +10,7 @@ import { setFlagsFromString } from 'v8';
 export function activate(context: vscode.ExtensionContext) {
 	let indentNav = new IndentNav();
 	console.log('indent-nav-kit is now active!');
-	vscode.window.showInformationMessage('indent-nav-kit is now active!');
+	// vscode.window.showInformationMessage('indent-nav-kit is now active!');
 
 	let nextSibling = vscode.commands.registerCommand('indent-nav.nextSibling', () => {
 		indentNav.jumpToIndent(true, false);
